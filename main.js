@@ -259,7 +259,7 @@ const tex2020 = createCanvasText('1811')
 var uniforms = {
   time: { value: 0 },
   upperLimit: { value: 10 },
-  upperRatio: { value: 1.25 },
+  upperRatio: { value: 1.2 },
   spiralRadius: { value: 0.5 },
   spiralTurns: { value: 1 },
   tex2020: { value: tex2020 },
@@ -344,7 +344,7 @@ pointsMat.onBeforeCompile = shader => {
     `gl_PointSize = size;`,
     `bool cond = floor(speed.y + 0.1) == 0.;
 gl_PointSize = size * ( cond ? 0.75 : ((1. - hRatio) * (smoothstep(0., 0.01, hRatio) * 0.25) + 0.75));
-    gl_PointSize = mix(gl_PointSize, size * 2., isEffect);
+    gl_PointSize = mix(gl_PointSize, size * 2.2, isEffect);
     `
   );
   shader.fragmentShader = `
