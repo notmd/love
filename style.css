@@ -4,15 +4,6 @@ body {
   position: relative;
 }
 
-#scWidget {
-  position: absolute;
-  width: 50vh;
-  height: 50vh;
-  left: calc(50vw - 25vh);
-  top: calc(50vh - 25vh);
-  display: none;
-}
-
 * {
   margin: 0;
   padding: 0;
