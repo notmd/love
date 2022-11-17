@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const bgContainer = document.querySelector('.bg-container')
   const audio = document.getElementById('music')
   audio.volume = 0
+  const clickSE = document.getElementById('clickSE')
+  clickSE.volume = 0.05
   const timer = new Timer({
     time: 10000,
     step: 200,
@@ -39,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   })
   btn?.addEventListener('click', async () => {
+    clickSE.play()
     document.body.classList.toggle('liked')
     await sleep(1300)
     bgContainer?.classList.add('animated')
@@ -65,7 +68,7 @@ var camera = new THREE.PerspectiveCamera(
   1,
   1000
 );
-camera.position.set(0, 5, 10);
+camera.position.set(0, 4, 10);
 //camera.lookAt(0, 5, 0);
 var renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setSize(screenWidth, screenHeight);
