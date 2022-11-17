@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const btn = document.querySelector('.btn')
   const bgContainer = document.querySelector('.bg-container')
+  const audio = document.getElementById('music')
+  audio.volume = 0.5
   btn?.addEventListener('click', async () => {
     document.body.classList.toggle('liked')
     await sleep(1200)
@@ -18,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
     start()
     await sleep(100)
     bgContainer.remove()
-
+    audio.play()
   })
 
 
@@ -180,7 +182,7 @@ gl_PointSize = size + (sin(tIdx) * cos(tIdx * 2.5) * 0.5 + 0.5) * halfSize * 0.5
   // petals
 
   var r = 4.5; // radius
-  var MAX_POINTS = 12000;
+  var MAX_POINTS = 15000;
   var pointsCount = 0;
   let points = []; //3
   let delay = [];  //1
