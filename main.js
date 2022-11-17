@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
   btn?.addEventListener('click', async () => {
     clickSE.play()
     document.body.classList.toggle('liked')
-    await sleep(1300)
+    await sleep(1500)
     bgContainer?.classList.add('animated')
     btn.classList.add('animate__animated', 'animate__fadeOut')
     await sleep(700)
