@@ -5,12 +5,40 @@ import { MeshSurfaceSampler } from 'https://cdn.jsdelivr.net/npm/three@0.115.0/e
 
 const sleep = ms => new Promise(r => setTimeout(r, ms));
 
+class Timer {
+  count = 0
+  constructor(props) {
+    this.time = props.time
+    this.step = props.step
+    this.callback = props.callback
+  }
+
+  start() {
+    const interval = setInterval(() => {
+      this.count++
+      this.callback(Math.min(this.count * this.step / this.time, 1))
+      if (this.count * this.step >= this.time) {
+        clearInterval(interval)
+      }
+    }, this.step);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
 
   const btn = document.querySelector('.btn')
   const bgContainer = document.querySelector('.bg-container')
   const audio = document.getElementById('music')
-  audio.volume = 0.5
+  audio.volume = 0
+  const timer = new Timer({
+    time: 10000,
+    step: 200,
+    callback: (percent) => {
+      const volume = Math.min(percent, 0.7)
+      console.log(`set volume to: ${volume}`)
+      audio.volume = volume
+    }
+  })
   btn?.addEventListener('click', async () => {
     document.body.classList.toggle('liked')
     await sleep(1200)
@@ -21,6 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     await sleep(100)
     bgContainer.remove()
     audio.play()
+    timer.start()
   })
 
 
