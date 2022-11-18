@@ -209,7 +209,7 @@ loader.load('https://threejs.org/examples/models/obj/tree.obj', object => {
 // petals
 
 var r = 4.5; // radius
-var MAX_POINTS = 18000;
+var MAX_POINTS = 12000;
 var pointsCount = 0;
 let points = []; //3
 let delay = [];  //1
